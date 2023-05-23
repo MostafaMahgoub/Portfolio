@@ -1,10 +1,10 @@
 import React from 'react';
-import bgVideo from './assets/videos/Projects.mp4';
-import './Projects.sass';
+import bgVideo from './assets/videos/AboutMe.mp4';
+import './AboutMe.sass';
 
-function Projects() {
+function AboutMe() {
   return (
-    <div className="Projects">
+    <div className="AboutMe">
       <video autoPlay muted loop id="bg-video">
         <source src={bgVideo} type="video/mp4" />
       </video>
@@ -12,4 +12,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default AboutMe;
