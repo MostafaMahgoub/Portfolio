@@ -8,8 +8,12 @@
 # production
 /build
 
-# production
-/assets
+# assets
+src/AboutMe/assets
+src/ContactMe/assets
+src/HomePage/assets
+src/Projects/assets
+src/SkillsSection/assets
 
 # misc
 .DS_Store
