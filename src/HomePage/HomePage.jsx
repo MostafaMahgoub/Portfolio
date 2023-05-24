@@ -17,6 +17,37 @@ function HomePage() {
             </label>
           </div>
         </div>
+        <div className="Nav-menu">
+          <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          About Me
+          </a>
+          <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Expertise
+          </a>
+          <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Projects
+          </a>
+          <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Contact Me
+          </a>
+
+        </div>
 
     </div>
   );
