@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState , useEffect , useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import HomePage from './HomePage/HomePage';
@@ -7,14 +7,30 @@ import ContactMe from './ContactMe/ContactMe';
 import Projects from './Projects/Projects';
 import SkillsSection from './SkillsSection/SkillsSection';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-      <HomePage />
+function App() {
+  const [isHidden, setIsHidden] = useState(false);
+  
+  useEffect(() => {
+    if (!isHidden) {
+      document.body.classList.add('no-scroll');
+      
+      return () => document.body.classList.remove('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isHidden]);
+
+  return (
+    <React.StrictMode>
+      <HomePage isHidden={isHidden} setIsHidden={setIsHidden} />
       <AboutMe />
       <SkillsSection />
       <Projects />
       <ContactMe />
-  </React.StrictMode>
-);
+    </React.StrictMode>
+  );
+}
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<App />);
