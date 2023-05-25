@@ -18,7 +18,7 @@ src/SkillsSection/assets
 # packages for personal purposes
 package.json
 package-lock.json
-/public/index.html
+public/index.html
 
 # misc
 .DS_Store
