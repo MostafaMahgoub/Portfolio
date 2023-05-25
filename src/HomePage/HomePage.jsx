@@ -1,5 +1,4 @@
 import React , {useRef} from 'react';
-import { useState } from 'react';
 import bgVideo from './assets/videos/HomePage.mp4';
 import gitHubIcon from './assets/icons/github-mark.svg';
 import linkedinIcon from './assets/icons/linkedin.svg'
@@ -62,6 +61,9 @@ function HomePage({ isHidden, setIsHidden }) {
         <div className={`icons-menu ${isHidden ? 'home-page-animation' : 'fade-home-page-animation'}`}>
           <a href='https://github.com/MostafaMahgoub' target="_blank"><img src={gitHubIcon} alt="Icon" className="icon" /></a>
           <a href='https://www.linkedin.com/in/mostafa-reda-4650b922b/' target="_blank"><img src={linkedinIcon} alt="Icon" className="icon" /></a>
+        </div>
+        <div className={`neon-wrapper ${isHidden ? '' : 'hidden'}`}>
+          <span className="txt">MOSTAFA REDA</span>
         </div>
 
     </div>
