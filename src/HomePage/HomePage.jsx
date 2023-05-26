@@ -6,10 +6,13 @@ import './HomePage.sass';
 
 function HomePage({ isHidden, setIsHidden }) {
   const homePageRef = useRef(null);
-
+  const handleAboutMeClick = () => {
+    const aboutMeSection = document.getElementById("about-me");
+    aboutMeSection.scrollIntoView({ behavior: "smooth" });
+  };
   const handleClickNav = () => {
     if (homePageRef.current) {
-      homePageRef.current.scrollIntoView({ behavior: 'smooth' });
+      homePageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -29,7 +32,7 @@ function HomePage({ isHidden, setIsHidden }) {
           </div>
         </div>
         <div className={`Nav-menu ${isHidden ? 'home-page-animation' : 'fade-home-page-animation'}`}>
-          <a id='menu-button' href="#">
+          <a id='menu-button' onClick={handleAboutMeClick}>
           <span></span>
           <span></span>
           <span></span>

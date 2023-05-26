@@ -9,9 +9,9 @@
     text-transform: uppercase
     display: block
     @media screen and (min-width: 0px)
-        font-size: 52px  //Going to 22px
+        font-size: 52px  
     @media screen and (min-width: 1024px)
-        font-size: 92px //Going to 52px
+        font-size: 92px 
     color: #281b0e
     text-shadow: 0 8px 9px #ff9d00,0px -2px 1px #fff
     font-weight: bold
@@ -21,8 +21,8 @@
     -webkit-background-clip: text
     background-clip: text
     position: absolute
-    top: 40% //Going to => 2%
-    left: 50% //Goint to => 10%
+    top: 40% 
+    left: 50% 
     transform: translate(-50%, -50%)
     border-radius: 20px
     white-space: nowrap
@@ -35,17 +35,45 @@
     left: 5%
     top: 10%
     font-family: 'Bellefair', serif
-    font-size: xx-large
+    @media screen and (min-width: 0px)
+        font-size: large
+    @media screen and (min-width: 1724px)
+        font-size: xx-large
     width: 50%
+    margin: 0 auto
 
 .AboutMe-scroll-effect
     top: 2% 
     @media screen and (min-width: 0px)
         left: 20% 
-        font-size: 22px 
+        font-size: 32px 
     @media screen and (min-width: 1024px)
         left: 10%
         font-size: 52px 
+
+.Resume-image-container
+    border-radius: 5%
+    filter: blur(2px)
+    transition: 1s
+    position: absolute
+    right: 10%
+    top: 10%
+    width: 30%
+    height: 80%
+
+.Resume-image-container:hover
+    filter: blur(0px)
+    transition: 1s
+
+.Resume-animation 
+	opacity: 1
+	visibility: visible
+	transition: opacity 1s ease-out
+
+.fade-Resume-animation 
+	opacity: 0
+	transition: opacity 1s ease-out
+
 
     
 
