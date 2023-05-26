@@ -4,11 +4,10 @@ import gitHubIcon from './assets/icons/github-mark.svg';
 import linkedinIcon from './assets/icons/linkedin.svg'
 import './HomePage.sass';
 
-function HomePage({ isHidden, setIsHidden }) {
+function HomePage({ isHidden, setIsHidden , AboutMePageRef}) {
   const homePageRef = useRef(null);
   const handleAboutMeClick = () => {
-    const aboutMeSection = document.getElementById("about-me");
-    aboutMeSection.scrollIntoView({ behavior: "smooth" });
+    AboutMePageRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const handleClickNav = () => {
     if (homePageRef.current) {

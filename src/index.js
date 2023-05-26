@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState , useEffect ,useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import HomePage from './HomePage/HomePage';
@@ -9,7 +9,7 @@ import SkillsSection from './SkillsSection/SkillsSection';
 
 function App() {
   const [isHidden, setIsHidden] = useState(false);
-  
+  const AboutMePageRef = useRef(null);
   useEffect(() => {
     if (!isHidden) {
       document.body.classList.add('no-scroll');
@@ -22,8 +22,8 @@ function App() {
 
   return (
     <React.StrictMode>
-      <HomePage isHidden={isHidden} setIsHidden={setIsHidden} />
-      <AboutMe />
+      <HomePage isHidden={isHidden} setIsHidden={setIsHidden}  AboutMePageRef={AboutMePageRef} />
+      <AboutMe AboutMePageRef={AboutMePageRef} />
       <SkillsSection />
       <Projects />
       <ContactMe />

@@ -26,7 +26,7 @@ function Typewriter({ text }) {
 }
 
 
-function AboutMe() {
+function AboutMe({AboutMePageRef}) {
   const AboutMesectionRef = useRef(null);
   const [startTyping, setStartTyping] = useState(false);
   const [showResume, setShowResume] = useState(false);
@@ -63,7 +63,7 @@ function AboutMe() {
     };
   }, []);
   return (
-    <div id="about-me" className="AboutMe">
+    <div ref={AboutMePageRef} className="AboutMe">
       <video autoPlay muted loop id="bg-video">
         <source src={bgVideo} type="video/mp4" />
       </video>
