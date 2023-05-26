@@ -2,28 +2,9 @@ import React,{ useState,useEffect, useRef } from 'react';
 import bgVideo from './assets/videos/AboutMe.mp4';
 import ResumePDF from './assets/MostafaReda_Resume.pdf';
 import ResumeImg from './assets/images/Resume.png';
+import Typewriter from './components/Typewriter';
 import './AboutMe.sass';
 
-
-function Typewriter({ text }) {
-  const [displayText, setDisplayText] = useState("");
-  
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i <= text.length) {
-        setDisplayText(text.slice(0, i));
-        i++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 25);
-
-    return () => clearInterval(interval);
-  }, [text]);
-
-  return <p className="AboutMe-paragraph">{displayText}</p>;
-}
 
 
 function AboutMe({AboutMePageRef}) {
@@ -53,8 +34,6 @@ function AboutMe({AboutMePageRef}) {
         rootMargin: '100px', 
       }
     );
-
-
     const aboutMeSectionRef = AboutMesectionRef;
     observer.observe(aboutMeSectionRef.current);
 
