@@ -1,18 +1,15 @@
-import React , {useRef} from 'react';
+import React  from 'react';
 import bgVideo from './assets/videos/HomePage.mp4';
 import gitHubIcon from './assets/icons/github-mark.svg';
 import linkedinIcon from './assets/icons/linkedin.svg'
 import './HomePage.sass';
 
-function HomePage({ isHidden, setIsHidden , AboutMePageRef}) {
-  const homePageRef = useRef(null);
+function HomePage({ isHidden, setIsHidden , AboutMePageRef , homePageRef}) {
   const handleAboutMeClick = () => {
     AboutMePageRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const handleClickNav = () => {
-    if (homePageRef.current) {
       homePageRef.current.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (
