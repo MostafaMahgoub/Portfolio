@@ -71,7 +71,7 @@ function AboutMe({AboutMePageRef}) {
       {startTyping && <Typewriter
       text="A computer science graduate from Ain Shams University's Faculty of Science and a front-end developer with over a year of experience in software engineering, I am highly motivated to continue honing my skills and expanding my knowledge. My primary focus is on front-end development, and I'm actively seeking opportunities to enhance my abilities and stay up-to-date with the latest industry trends and best practices. I am passionate about my craft and am dedicated to delivering high-quality work that meets and exceeds expectations."
       />}
-      <img onClick={handleDownload} src={ResumeImg} className={`Resume-image-container ${showResume ? 'Resume-animation':'fade-Resume-animation'}`}></img>
+      <img alt='' onClick={handleDownload} src={ResumeImg} className={`Resume-image-container ${showResume ? 'Resume-animation':'fade-Resume-animation'}`}></img>
     </div>
   );
 }

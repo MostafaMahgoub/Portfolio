@@ -1,72 +1,28 @@
-import React  from 'react';
-import bgVideo from './assets/videos/HomePage.mp4';
-import gitHubIcon from './assets/icons/github-mark.svg';
-import linkedinIcon from './assets/icons/linkedin.svg'
+import React from 'react';
 import './HomePage.sass';
+import BackgroundVideo from './components/BackgroundVideo';
+import SwitchButton from './components/SwitchButton';
+import NavMenu from './components/NavMenu';
+import IconsMenu from './components/IconsMenu';
+import NeonWrapperTxt from './components/NeonWrapperTxt';
 
-function HomePage({ isHidden, setIsHidden , AboutMePageRef , homePageRef}) {
+const HomePage = ({ isHidden, setIsHidden, AboutMePageRef, homePageRef }) => {
   const handleAboutMeClick = () => {
     AboutMePageRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const handleClickNav = () => {
-      homePageRef.current.scrollIntoView({ behavior: "smooth" });
+    homePageRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="HomePage" ref={homePageRef}>
-      <video autoPlay muted loop id="bg-video">
-        <source src={bgVideo} type="video/mp4" />
-      </video>
-        <div className={`round ${isHidden ? 'switch-button-animation' : 'fade-switch-button-animation'}`}>
-          <input type="checkbox" id="onoff" name="onoff" />
-          <div className="back">
-            <label className="but" onClick={() => {setIsHidden(!isHidden);handleClickNav();}} htmlFor="onoff">
-              <span className="on">I</span>
-              
-              <span className="off">0</span>
-            </label>
-          </div>
-        </div>
-        <div className={`Nav-menu ${isHidden ? 'home-page-animation' : 'fade-home-page-animation'}`}>
-          <a id='menu-button' onClick={handleAboutMeClick}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          About Me
-          </a>
-          <a id='menu-button' href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Expertise
-          </a>
-          <a id='menu-button' href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Projects
-          </a>
-          <a id='menu-button' href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Contact Me
-          </a>
-        </div>
-        <div className={`icons-menu ${isHidden ? 'home-page-animation' : 'fade-home-page-animation'}`}>
-          <a href='https://github.com/MostafaMahgoub' target="_blank"><img src={gitHubIcon} alt="Icon" className="icon" /></a>
-          <a href='https://www.linkedin.com/in/mostafa-reda-4650b922b/' target="_blank"><img src={linkedinIcon} alt="Icon" className="icon" /></a>
-        </div>
-        <div className={`neon-wrapper ${isHidden ? '' : 'hidden'}`}>
-          <span className="txt">MOSTAFA REDA</span>
-        </div>
-
+      <BackgroundVideo />
+      <SwitchButton isHidden={isHidden} setIsHidden={setIsHidden} handleClickNav={handleClickNav} />
+      <NavMenu isHidden={isHidden} handleAboutMeClick={handleAboutMeClick} />
+      <IconsMenu isHidden={isHidden} />
+      <NeonWrapperTxt isHidden={isHidden} />
     </div>
   );
-}
+};
 
 export default HomePage;
