@@ -1,4 +1,4 @@
-import React, { useState , useEffect ,useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import HomePage from './HomePage/HomePage';
@@ -14,23 +14,26 @@ function App() {
   const ContactMePage = useRef(null);
   const ProjectPageRef = useRef(null);
   const SkillsPageRef = useRef(null);
-  useEffect(() => {
-    if (!isHidden) {
-      document.body.classList.add('no-scroll');
-      
-      return () => document.body.classList.remove('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-  }, [isHidden]);
+
+  const appClass = isHidden ? '' : 'no-scroll';
 
   return (
     <React.StrictMode>
-      <HomePage isHidden={isHidden} setIsHidden={setIsHidden}  AboutMePageRef={AboutMePageRef} homePageRef={homePageRef} ContactMePage={ContactMePage} ProjectPageRef={ProjectPageRef} SkillsPageRef={SkillsPageRef} />
-      <AboutMe AboutMePageRef={AboutMePageRef} />
-      <SkillsSection SkillsPageRef = {SkillsPageRef} />
-      <Projects ProjectPageRef={ProjectPageRef} />
-      <ContactMe ContactMePage={ContactMePage} />
+      <div className={appClass}>
+        <HomePage
+          isHidden={isHidden}
+          setIsHidden={setIsHidden}
+          AboutMePageRef={AboutMePageRef}
+          homePageRef={homePageRef}
+          ContactMePage={ContactMePage}
+          ProjectPageRef={ProjectPageRef}
+          SkillsPageRef={SkillsPageRef}
+        />
+        <AboutMe AboutMePageRef={AboutMePageRef} />
+        <SkillsSection SkillsPageRef={SkillsPageRef} />
+        <Projects ProjectPageRef={ProjectPageRef} />
+        <ContactMe ContactMePage={ContactMePage} />
+      </div>
     </React.StrictMode>
   );
 }
