@@ -1,22 +1,15 @@
 import React from 'react';
 
-const NavMenu = ({ isHidden, handleAboutMeClick }) => {
-  const buttons = [
-    { key: 'About-Me-Key', text: 'About Me', onClick: handleAboutMeClick },
-    { key: 'Expertise-Key', text: 'Expertise', onClick: '' },
-    { key: 'Projects-Key', text: 'Projects', onClick: '' },
-    { key: 'Contact-Me-Key', text: 'Contact Me', onClick: '' },
-  ];
-
+const NavMenu = ({ isHidden, sections, handleSectionClick }) => {
   return (
     <div className={`Nav-menu ${isHidden ? 'home-page-animation' : 'fade-home-page-animation'}`}>
-      {buttons.map((button) => (
-        <button key={button.key} id='menu-button' onClick={button.onClick}>
+      {sections.map((section) => (
+        <button key={section.label} id='menu-button' onClick={() => handleSectionClick(section.ref)}>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          {button.text}
+          {section.label}
         </button>
       ))}
     </div>
