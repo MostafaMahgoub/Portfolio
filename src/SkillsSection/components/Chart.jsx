@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { lightningChart, PointShape, Themes } from '@arction/lcjs';
 
-function Chart() {
+function Chart({showChart}) {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -103,7 +103,9 @@ function Chart() {
     }
   }, [chartRef]);
 
-  return <div ref={chartRef} className='chart_Container' />;
+  return <div ref={chartRef} className={`chart_Container ${
+    showChart ? 'Chart-animation' : ''
+  }`} />;
 }
 
 export default Chart;

@@ -9,7 +9,7 @@ import NeonWrapperTxt from './components/NeonWrapperTxt';
 const HomePage = ({ isHidden, setIsHidden, AboutMePageRef, homePageRef , ContactMePage , ProjectPageRef , SkillsPageRef }) => {
   const sections = [
     { ref: AboutMePageRef, label: "About Me" },
-    { ref: SkillsPageRef, label: "Skills" },
+    { ref: SkillsPageRef, label: "Expertise" },
     { ref: ProjectPageRef, label: "Projects" },
     { ref: ContactMePage, label: "Contact Me" },
   ];
