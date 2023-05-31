@@ -1,7 +1,7 @@
 import React , {useRef , useEffect} from 'react';
-import bgVideo from './assets/videos/Projects.mp4';
 import './Projects.sass';
 import ProjectsHeading from './components/ProjectsHeading';
+import BackgroundVideo from './components/BackgroundVideo';
 
 function Projects({ProjectPageRef}) {
   const ProjectsSectionRef = useRef(null);
@@ -29,9 +29,7 @@ function Projects({ProjectPageRef}) {
 
   return (
     <div ref={ProjectPageRef} className="Projects">
-      <video autoPlay muted loop id="bg-video">
-        <source src={bgVideo} type="video/mp4" />
-      </video>
+      <BackgroundVideo />
       <ProjectsHeading ProjectsSectionRef={ProjectsSectionRef} />
     </div>
   );

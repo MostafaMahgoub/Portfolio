@@ -1,7 +1,7 @@
 import React , {useRef , useEffect} from 'react';
-import bgVideo from './assets/videos/ContactMe.mp4';
 import './ContactMe.sass';
 import ContactmeHeading from './components/ContactmeHeading';
+import BackgroundVideo from './components/BackgroundVideo';
 
 function ContactMe({ContactMePage}) {
   const ContactMeSectionRef = useRef(null);
@@ -29,9 +29,7 @@ function ContactMe({ContactMePage}) {
 
   return (
     <div ref={ContactMePage} className="ContactMe">
-      <video autoPlay muted loop id="bg-video">
-        <source src={bgVideo} type="video/mp4" />
-      </video>
+      <BackgroundVideo />
       <ContactmeHeading ContactMeSectionRef={ContactMeSectionRef} />
     </div>
   );

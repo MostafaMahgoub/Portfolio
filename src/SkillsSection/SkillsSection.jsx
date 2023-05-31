@@ -1,8 +1,8 @@
 import React ,{useRef , useEffect , useState} from 'react';
-import bgVideo from './assets/videos/SkillsSection.mp4';
 import './SkillsSection.sass';
 import Chart from './components/Chart';
 import ExpertiseHeading from './components/ExpertiseHeading';
+import BackgroundVideo from './components/BackgroundVideo';
 
 function SkillsSection({SkillsPageRef}) {
   const ExpertiseSectionRef = useRef(null);
@@ -33,9 +33,7 @@ function SkillsSection({SkillsPageRef}) {
   }, []);
   return (
     <div ref={SkillsPageRef} className="SkillsSection">
-      <video autoPlay muted loop id="bg-video">
-        <source src={bgVideo} type="video/mp4" />
-      </video>
+      <BackgroundVideo />
       <ExpertiseHeading ExpertiseSectionRef={ExpertiseSectionRef} />
       <Chart showChart={showChart} />
     </div>
