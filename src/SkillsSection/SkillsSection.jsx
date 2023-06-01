@@ -31,10 +31,10 @@ function SkillsSection({SkillsPageRef}) {
   
   const skills = [
     { skillName: 'ReactJS', icon: reactIcon },
+    { skillName: 'CSS', icon: cssIcon },
     { skillName: 'Sass', icon: sassIcon },
     { skillName: 'Javascript', icon: jsIcon},
     { skillName: 'HTML', icon: htmlIcon },
-    { skillName: 'CSS', icon: cssIcon },
     { skillName: 'MySQL', icon: mysqlIcon },
     { skillName: 'MongoDB', icon: mongoIcon},
     { skillName: 'Dart', icon: dartIcon},
