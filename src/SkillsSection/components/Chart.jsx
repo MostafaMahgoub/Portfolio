@@ -64,7 +64,7 @@ function Chart({showChart}) {
           { x: 2022, y: 50 },
           { x: 2023, y: 100 },
         ]},
-        { name: 'ElectronJS,NodeJS,Bootstrap', data: [
+        { name: 'ElectronJS,NodeJS,Bootstrap,Typescript', data: [
           { x: 2021, y: 0 },
           { x: 2022, y: 10 },
           { x: 2023, y: 200 },

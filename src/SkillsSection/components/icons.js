@@ -17,11 +17,13 @@ import bootstrapIcon from '../assets/icons/bootstrap.svg';
 import gitIcon from '../assets/icons/git.svg';
 import unityIcon from '../assets/icons/unity.svg';
 import phpIcon from '../assets/icons/php.svg';
+import typescriptIcon from '../assets/icons/typescript.svg';
 
 
 const skills = [
     { skillName: 'ReactJS', icon: reactIcon },
     { skillName: 'CSS', icon: cssIcon },
+    { skillName: 'Typescript', icon: typescriptIcon },
     { skillName: 'Sass', icon: sassIcon },
     { skillName: 'Javascript', icon: jsIcon},
     { skillName: 'HTML', icon: htmlIcon },
