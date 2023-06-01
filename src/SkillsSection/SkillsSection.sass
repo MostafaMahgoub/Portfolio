@@ -1,3 +1,5 @@
+
+
 .SkillsSection
     position: relative
 
@@ -48,3 +50,94 @@
 .Chart-animation 
 	opacity: 1
 	transition: opacity 2s ease-out
+
+@keyframes slide-up 
+  0% 
+    opacity: 0
+    transform: translateY(20px)
+  
+  100% 
+    opacity: 1
+    transform: translateY(0)
+  
+
+
+.slide-up 
+  opacity: 0
+  animation-name: slide-up
+  animation-duration: 0.5s
+  animation-fill-mode: forwards
+
+.text-slider
+    display: flex
+    gap: 11px
+    height: fit-content
+    position: absolute
+    font-weight: 900
+    top: 10%
+    left: 10%
+    font-family: 'Spartan', sans-serif
+    text-shadow: 0 0 7px #f00, 0 0 10px #f00, 0 0 21px #f00, 0 0 42px #f00, 0 0 82px #f00, 0 0 92px #f00, 0 0 102px #f00, 0 0 151px #f00
+    color: #fff
+
+.skills-container
+  display: flex
+  width: 80%
+  height: 80%
+  margin-top: 3%
+  padding: 3em
+  border-radius: 20px
+  border-top: 1px solid #fbfbfb
+  backdrop-filter: blur(10px)
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2)
+  text-align: center
+  transition: all 0.2s ease-in-out
+  position: absolute
+  top: 10%
+  left: 10%
+
+.side-text-label
+    color: #fff
+    text-shadow: 0 0 black
+
+
+.icon-3d 
+  position: absolute
+  top: 20%
+  width: 30%
+  height: fit-content
+  -webkit-animation: icon3d 200ms 10
+  animation: icon3d 200ms 10
+
+  &:hover 
+    -webkit-animation: icon3d 200ms infinite
+    animation: icon3d 200ms infinite
+  
+
+
+$redColor: #fb1e017e
+$orangeColor:  #fb1e0170
+
+@keyframes icon3d 
+  0% 
+    filter: drop-shadow(5px 4px $redColor) drop-shadow(-5px -6px $orangeColor)
+  
+
+  25% 
+    filter: drop-shadow(-5px -6px $redColor) drop-shadow(5px 4px $orangeColor)
+  
+
+  50% 
+    filter: drop-shadow(5px -4px $redColor) drop-shadow(-8px 4px $orangeColor)
+  
+
+  75% 
+    filter: drop-shadow(-8px -4px $redColor) drop-shadow(-5px -4px $orangeColor)
+  
+
+  100% 
+    filter: drop-shadow(-5px 0 $redColor) drop-shadow(5px -4px $orangeColor)
+  
+
+
+
