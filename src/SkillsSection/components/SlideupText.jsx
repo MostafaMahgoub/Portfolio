@@ -14,7 +14,7 @@ function TextSlider({ skills }) {
   }, [skills]);
 
   return (
-    <div>
+    <div className='text-icon-wrapper'>
        <div className="text-slider">
          <div className='side-text-label'>Experienced in ,</div>
          <div key={skills[currentTextIndex].skillName} className="slide-up">{skills[currentTextIndex].skillName}</div>

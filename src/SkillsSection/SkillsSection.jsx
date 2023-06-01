@@ -78,10 +78,11 @@ function SkillsSection({SkillsPageRef}) {
     <div ref={SkillsPageRef} className="SkillsSection">
       <BackgroundVideo />
       <ExpertiseHeading ExpertiseSectionRef={ExpertiseSectionRef} />
-      <div className='skills-container'>
+      <div className={`skills-container ${
+        showChart ? 'show-skils-container' : ''
+      }`}>
         <Chart showChart={showChart} />
         <TextSlider skills={skills} />
-        {/* <img src={githubIcon} className='icon-3d' alt='' /> */}
       </div>
     </div>
   );

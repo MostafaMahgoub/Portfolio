@@ -49,7 +49,7 @@
 
 .Chart-animation 
 	opacity: 1
-	transition: opacity 2s ease-out
+	transition: opacity 3s ease-out
 
 @keyframes slide-up 
   0% 
@@ -80,6 +80,9 @@
     text-shadow: 0 0 7px #f00, 0 0 10px #f00, 0 0 21px #f00, 0 0 42px #f00, 0 0 82px #f00, 0 0 92px #f00, 0 0 102px #f00, 0 0 151px #f00
     color: #fff
 
+.text-icon-wrapper
+    user-select: none
+
 .skills-container
   display: flex
   width: 80%
@@ -94,7 +97,11 @@
   transition: all 0.2s ease-in-out
   position: absolute
   top: 10%
+  left: -77% //will be 10%
+
+.show-skils-container
   left: 10%
+  transition: 1s
 
 .side-text-label
     color: #fff
