@@ -15,7 +15,7 @@ const HomePage = ({ isHidden, setIsHidden, AboutMePageRef, homePageRef , Contact
   ];
 
   const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    ref.current.scrollIntoView({ behavior: "smooth" ,  passive: true});
   };
 
   const handleSectionClick = (ref) => {
@@ -23,7 +23,7 @@ const HomePage = ({ isHidden, setIsHidden, AboutMePageRef, homePageRef , Contact
   };
 
   const handleClickNav = () => {
-    homePageRef.current.scrollIntoView({ behavior: "smooth" });
+    homePageRef.current.scrollIntoView({ behavior: "smooth" , passive: true});
   };
 
   return (
