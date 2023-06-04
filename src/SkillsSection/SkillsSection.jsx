@@ -25,7 +25,7 @@ function SkillsSection({SkillsPageRef}) {
         }
       },
       {
-        rootMargin: '100px',
+        rootMargin: '200px',
       }
     );
     const ExpertiseRef = ExpertiseSectionRef;

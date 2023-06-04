@@ -26,7 +26,7 @@ function AboutMe({ AboutMePageRef }) {
         }
       },
       {
-        rootMargin: '100px',
+        rootMargin: '200px',
       }
     );
     const aboutMeSectionRef = AboutMesectionRef;
