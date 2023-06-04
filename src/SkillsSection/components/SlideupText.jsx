@@ -19,7 +19,7 @@ function TextSlider({ skills }) {
          <div className='side-text-label'>Experienced in ,</div>
          <div key={skills[currentTextIndex].skillName} className="slide-up">{skills[currentTextIndex].skillName}</div>
        </div>
-       <img key={skills[currentTextIndex].icon} src={skills[currentTextIndex].icon} className='icon-3d' alt='' />
+       <img key={skills[currentTextIndex].icon} src={skills[currentTextIndex].icon} loading="lazy" className='icon-3d' alt='' />
     </div>
   );
 }

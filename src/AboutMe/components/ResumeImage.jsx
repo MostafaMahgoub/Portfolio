@@ -12,6 +12,7 @@ function ResumeImage({ showResume }) {
       alt=""
       onClick={handleDownload}
       src={ResumeImg}
+      loading="lazy"
       className={`Resume-image-container ${
         showResume ? 'Resume-animation' : 'fade-Resume-animation'
       }`}
