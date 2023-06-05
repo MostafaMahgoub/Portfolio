@@ -6,6 +6,7 @@ import ThreeDModel from './components/ThreeDModel';
 import ProjectDescription from './components/ProjectDescription';
 import phoneModal from './assets/3d-modals/phone_3d_apple.glb';
 import MonitorModal from './assets/3d-modals/electron_projects.glb';
+import NavProjectsMenu from './components/NavProjectsMenu';
 
 
 
@@ -85,24 +86,7 @@ function Projects({ProjectPageRef}) {
             </>
           )}
         </div>
-        <div>
-         <nav className="nav" aria-label="In-page jump links">
-             <ul>
-               <li>
-                 <a className="nav-link" href="#electronJS" onClick={function() { setActiveNav('ElectronJS') }}>
-                   <span className="nav-indicator" />
-                   <span className="nav-text">ElectronJS</span>
-                 </a>
-               </li>
-               <li>
-                 <a className="nav-link" href="#a.m.s" onClick={function() { setActiveNav('A.M.S') }}>
-                   <span className="nav-indicator" />
-                   <span className="nav-text">A.M.S</span>
-                 </a>
-               </li>
-             </ul>
-         </nav>
-        </div>
+        <NavProjectsMenu setActiveNav={setActiveNav} />
       </div>
     </div>
   );
