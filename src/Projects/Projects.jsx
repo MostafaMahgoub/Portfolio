@@ -50,7 +50,9 @@ function Projects({ProjectPageRef}) {
         }`}
       >
         <div className="model-container">
-          <Canvas>
+          <Canvas className={`${
+        showProjects ? 'slide-right' : ''
+      }`}>
             <PerspectiveCamera
                makeDefault
                position={[10, 10, 10]} // Set the initial position of the camera
@@ -72,7 +74,9 @@ function Projects({ProjectPageRef}) {
               <Model url="/3d-modals/electron_projects.glb" />
             </Suspense>
           </Canvas>
-          <p className='projects-description'>Throughout my extensive career in software development, I have successfully completed over 7 Electron.js projects using Vanilla JS, HTML, and CSS, with varied complexity levels ranging from building projects from scratch to maintaining and adding new features to existing ones. Furthermore, I possess a wealth of experience in developing over eight desktop applications using Electron, where I have worked with map APIs, managed markers, and proficiently handled databases such as MySQL and Mongo, in addition to my expertise in socket programming. Notably, I have also demonstrated my proficiency in delving into large and legacy vanilla JavaScript codebases, a skill that has proved invaluable in my development projects.</p>
+          <p className={`projects-description ${
+        showProjects ? 'slide-left' : ''
+      }`}>Throughout my extensive career in software development, I have successfully completed over 7 Electron.js projects using Vanilla JS, HTML, and CSS, with varied complexity levels ranging from building projects from scratch to maintaining and adding new features to existing ones. Furthermore, I possess a wealth of experience in developing over eight desktop applications using Electron, where I have worked with map APIs, managed markers, and proficiently handled databases such as MySQL and Mongo, in addition to my expertise in socket programming. Notably, I have also demonstrated my proficiency in delving into large and legacy vanilla JavaScript codebases, a skill that has proved invaluable in my development projects.</p>
         </div>
       </div>
     </div>
