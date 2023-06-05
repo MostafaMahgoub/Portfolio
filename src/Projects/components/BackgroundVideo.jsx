@@ -3,7 +3,7 @@ import bgVideo from '../assets/videos/Projects.mp4';
 
 function BackgroundVideo() {
   return (
-    <video autoPlay muted loop id="bg-video">
+    <video autoPlay muted loop preload="auto" id="bg-video">
       <source src={bgVideo} type="video/mp4" />
     </video>
   );

@@ -3,7 +3,7 @@ import BACKGROUND_VIDEO from '../assets/videos/HomePage.mp4';
 
 const BackgroundVideo = () => {
   return (
-    <video autoPlay muted loop id="bg-video">
+    <video autoPlay muted loop preload="auto" id="bg-video">
       <source src={BACKGROUND_VIDEO} type="video/mp4" />
     </video>
   );

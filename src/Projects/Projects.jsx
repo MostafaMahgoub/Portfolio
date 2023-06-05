@@ -80,7 +80,7 @@ function Projects({ProjectPageRef}) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className="Explore-button">Explore</button>
+                <button className="Explore-button">Explore &#8594;</button>
               </a>
             </>
           )}

@@ -29,7 +29,7 @@ function AboutMe({ AboutMePageRef }) {
         }
       },
       {
-        rootMargin: '800px 0px 50px 0px',
+        rootMargin: '300px 0px 50px 0px',
       }
     );
     const aboutMeSectionRef = AboutMesectionRef;
