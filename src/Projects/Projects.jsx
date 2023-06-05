@@ -5,6 +5,8 @@ import BackgroundVideo from './components/BackgroundVideo';
 import { Canvas } from 'react-three-fiber';
 import { Suspense } from 'react';
 import { OrbitControls, PerspectiveCamera, useGLTF } from '@react-three/drei';
+import phoneModal from './assets/3d-modals/phone_3d_apple.glb';
+import MonitorModal from './assets/3d-modals/electron_projects.glb';
 
 
 
@@ -17,20 +19,23 @@ function Projects({ProjectPageRef}) {
   const ProjectsSectionRef = useRef(null);
   const [showProjects, setShowProjects] = useState(false);
   const [activeNav, setActiveNav] = useState('ElectronJS');
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isInView) {
           ProjectsSectionRef.current.classList.add('Projects-scroll-effect');
           setShowProjects(true);
-        } else {
+          setIsInView(true);
+        } else if (!entry.isIntersecting && isInView) {
           ProjectsSectionRef.current.classList.remove('Projects-scroll-effect');
           setShowProjects(false);
+          setIsInView(false);
         }
       },
       {
-        rootMargin: '200px',
+        rootMargin: '800px 0px 150px 0px',
       }
     );
     const ProjectsRef = ProjectsSectionRef;
@@ -39,7 +44,7 @@ function Projects({ProjectPageRef}) {
     return () => {
       observer.unobserve(ProjectsRef.current);
     };
-  }, []);
+  }, [isInView]);
 
 
   return (
@@ -58,11 +63,11 @@ function Projects({ProjectPageRef}) {
         
             <PerspectiveCamera
                makeDefault
-               position={[10, 10, 10]} // Set the initial position of the camera
-               rotation={[0, Math.PI * 1.75, 0]} // Set the rotation to 315 degrees around the y-axis
-               fov={5} // Set the field of view (zoom level)  monitor => 5//0.8 => phont
-               near={0.1} // Set the near clipping plane
-               far={100} // Set the far clipping plane
+               position={[10, 10, 10]} 
+               rotation={[0, Math.PI * 1.75, 0]} 
+               fov={5} 
+               near={0.1} 
+               far={100} 
             />
             <ambientLight intensity={0.5} />
             <directionalLight
@@ -74,7 +79,7 @@ function Projects({ProjectPageRef}) {
             <pointLight position={[0, -10, 0]} intensity={1.5} />
             <OrbitControls enableZoom={false} />
             <Suspense fallback={null}>
-              <Model url="/3d-modals/electron_projects.glb" />
+              <Model url={MonitorModal} />
             </Suspense>
           </Canvas>}
           {activeNav === 'A.M.S' && <Canvas className={`${
@@ -83,11 +88,11 @@ function Projects({ProjectPageRef}) {
         
             <PerspectiveCamera
                makeDefault
-               position={[10, 10, 10]} // Set the initial position of the camera
-               rotation={[0, Math.PI * 1.75, 0]} // Set the rotation to 315 degrees around the y-axis
-               fov={0.8} // Set the field of view (zoom level)  monitor => 5//0.8 => phont
-               near={0.1} // Set the near clipping plane
-               far={100} // Set the far clipping plane
+               position={[10, 10, 10]} 
+               rotation={[0, Math.PI * 1.75, 0]} 
+               fov={0.8} 
+               near={0.1} 
+               far={100} 
             />
             <ambientLight intensity={0.5} />
             <directionalLight
@@ -99,17 +104,20 @@ function Projects({ProjectPageRef}) {
             <pointLight position={[0, -10, 0]} intensity={1.5} />
             <OrbitControls enableZoom={false} />
             <Suspense fallback={null}>
-              <Model url="/3d-modals/phone_3d_apple.glb" />
+              <Model url={phoneModal} />
             </Suspense>
           </Canvas>}
           {activeNav === 'ElectronJS' && <p className={`projects-description ${
         showProjects ? 'slide-left' : ''
       }`}>During my tenure at the Research and Development Center of the Egyptian Air Defense Military Commands, I have successfully completed over 7 Electron.js projects using Vanilla JS, HTML, and CSS, with varied complexity levels ranging from building projects from scratch to maintaining and adding new features to existing ones. Additionally, I possess a wealth of experience in developing over eight desktop applications using Electron, where I have worked with map APIs, managed markers, and proficiently handled databases such as MySQL and Mongo, in addition to my expertise in socket programming. Notably, I have also demonstrated my proficiency in delving into large and legacy vanilla JavaScript codebases, a skill that has proved invaluable in my development projects at my career.
            </p>}
-           {activeNav === 'A.M.S' && <p className={`projects-description ${
+           {activeNav === 'A.M.S' && <><p className={`projects-description ${
         showProjects ? 'slide-left' : ''
-      }`}>Flutter-based advising management system mobile app simplifies college paperwork for admins, doctors, and students. It offers 30+ features to streamline administrative tasks such as course scheduling, student record management, and performance reporting. For doctors, it offers features like grading, attendance tracking, and course material access. And for students, it provides a convenient way to manage coursework with features like registration, grade tracking, and attendance management. Our app is optimized for performance and offers a clean, intuitive user interface. Although it is not responsive, it provides a fast, reliable, and easy-to-use experience for all users.
-           </p>}
+      }`}>Flutter-based advising management system mobile app is designed to be a one-stop solution for college paperwork. It simplifies tasks for admins, doctors, and students by offering 30+ features to streamline administrative tasks and manage coursework. For doctors, it provides tools like grading, attendance tracking, and course material access to help them manage their teaching workload. And for students, it provides an easy-to-use platform for course registration, grade tracking, and attendance management.
+
+      The app is optimized for performance, providing a fast and efficient experience for all users. It has a clean and intuitive user interface that makes it easy to navigate and use. Although it is not fully responsive, it works seamlessly on most devices and provides a reliable and consistent experience. Overall, our app is an essential tool for anyone involved in the academic process and can help simplify and streamline the administrative tasks that come with it.
+           </p>
+           <a href='https://github.com/MostafaMahgoub/ADVISING-MANAGEMENT-SYSTEM' target='_blank' rel="noreferrer"><button className='Explore-button'>Explore</button></a></>}
         </div>
         <div>
         <nav className="nav" aria-label="In-page jump links">

@@ -10,22 +10,25 @@ import skills from './components/icons';
 function SkillsSection({SkillsPageRef}) {
   const ExpertiseSectionRef = useRef(null);
   const [showChart, setShowChart] = useState(false);
+  const [observerCalled, setObserverCalled] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !observerCalled) {
           setTimeout(() => {
             setShowChart(true);
           }, 500);
           ExpertiseSectionRef.current.classList.add('Expertise-scroll-effect');
-        } else {
+          setObserverCalled(true);
+        } else if (!entry.isIntersecting && observerCalled){
           setShowChart(false);
           ExpertiseSectionRef.current.classList.remove('Expertise-scroll-effect');
+          setObserverCalled(false);
         }
       },
       {
-        rootMargin: '200px',
+        rootMargin: '300px 0px 150px 0px',
       }
     );
     const ExpertiseRef = ExpertiseSectionRef;
@@ -34,7 +37,7 @@ function SkillsSection({SkillsPageRef}) {
     return () => {
       observer.unobserve(ExpertiseRef.current);
     };
-  }, []);
+  }, [observerCalled]);
   return (
     <div ref={SkillsPageRef} className="SkillsSection">
       <BackgroundVideo />

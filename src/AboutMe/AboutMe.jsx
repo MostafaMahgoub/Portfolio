@@ -9,24 +9,27 @@ function AboutMe({ AboutMePageRef }) {
   const AboutMesectionRef = useRef(null);
   const [startTyping, setStartTyping] = useState(false);
   const [showResume, setShowResume] = useState(false);
+  const [observerCalled, setObserverCalled] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !observerCalled) {
           setTimeout(() => {
             setShowResume(true);
           }, 5000);
           setStartTyping(true);
           AboutMesectionRef.current.classList.add('AboutMe-scroll-effect');
-        } else {
+          setObserverCalled(true);
+        } else if (!entry.isIntersecting && observerCalled) {
           setShowResume(false);
           setStartTyping(false);
           AboutMesectionRef.current.classList.remove('AboutMe-scroll-effect');
+          setObserverCalled(false);
         }
       },
       {
-        rootMargin: '200px',
+        rootMargin: '800px 0px 50px 0px',
       }
     );
     const aboutMeSectionRef = AboutMesectionRef;
@@ -35,7 +38,7 @@ function AboutMe({ AboutMePageRef }) {
     return () => {
       observer.unobserve(aboutMeSectionRef.current);
     };
-  }, []);
+  }, [observerCalled]);
 
   return (
     <div ref={AboutMePageRef} className="AboutMe">
