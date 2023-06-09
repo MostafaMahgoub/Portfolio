@@ -14,7 +14,7 @@ const googleHybrid = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&
   subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
 
-const Map = () => {
+function Map() {
   const position = [30.057698584217924, 31.35537700118351];
 
   return (
