@@ -2,6 +2,7 @@ import React , {useRef , useEffect , useState} from 'react';
 import './ContactMe.sass';
 import ContactmeHeading from './components/ContactmeHeading';
 import BackgroundVideo from './components/BackgroundVideo';
+import Map from './components/Map';
 
 function ContactMe({ContactMePage}) {
   const ContactMeSectionRef = useRef(null);
@@ -45,7 +46,9 @@ function ContactMe({ContactMePage}) {
         className={`ContactMe-container ${
           showContactMe ? 'show-ContactMe-container' : ''
         }`}
-      ></div>
+      >
+        <Map />
+      </div>
     </div>
   );
 }

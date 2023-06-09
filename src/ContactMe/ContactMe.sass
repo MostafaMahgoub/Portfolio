@@ -51,6 +51,40 @@
   top: 10%
   left: -77%
 
+.Map-container
+  flex: 1
+  height: 100%
+//   border-left: 1px solid #fbfbfb
+
 .show-ContactMe-container
   left: 10%
   transition: 1s
+
+
+.circle
+  width: 10px
+  height: 10px
+  border-radius: 50%
+  position: absolute
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7)
+
+.one
+  animation: circle 3s 2s infinite linear
+  background-color: rgba(255, 0, 0, 0.5)
+
+.two
+  animation: circle 3s 1s infinite linear
+  background-color: rgba(255, 0, 0, 0.5)
+
+.three
+  animation: circle 3s 0s infinite linear
+  background-color: rgba(255, 0, 0, 0.5)
+
+@keyframes circle
+  from
+    transform: scale(0)
+    opacity: 1
+
+  to
+    transform: scale(8)
+    opacity: 0
