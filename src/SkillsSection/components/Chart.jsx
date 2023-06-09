@@ -9,7 +9,7 @@ function Chart({showChart}) {
       
       const chart = lightningChart().ChartXY({
         container: chartRef.current,
-        theme: Themes.cyberSpace,
+        theme: Themes.turquoiseHexagon,
       });
 
       
