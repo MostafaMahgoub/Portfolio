@@ -37,4 +37,4 @@ const HomePage = ({ isHidden, setIsHidden, AboutMePageRef, homePageRef , Contact
   );
 };
 
-export default HomePage;
+export default React.memo(HomePage);

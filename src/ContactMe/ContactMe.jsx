@@ -1,42 +1,42 @@
-import React , {useRef , useEffect , useState} from 'react';
+import React , {useRef , useEffect , useState , useCallback} from 'react';
 import './ContactMe.sass';
 import ContactmeHeading from './components/ContactmeHeading';
 import BackgroundVideo from './components/BackgroundVideo';
 import Map from './components/Map';
+// import ContactBox from './components/ContactBox';
 
 function ContactMe({ContactMePage}) {
   const ContactMeSectionRef = useRef(null);
   const [showContactMe, setShowContactMe] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isInView) {
-
-          ContactMeSectionRef.current.classList.add('ContactMe-scroll-effect');
-          setShowContactMe(true);
-          setIsInView(true);
-
-        } else if (!entry.isIntersecting && isInView) {
-
-          ContactMeSectionRef.current.classList.remove('ContactMe-scroll-effect');
-          setShowContactMe(false);
-          setIsInView(false);
-
-        }
-      },
-      {
-        rootMargin: '800px 0px 150px 0px',
+  const observerCallback = useCallback(
+    ([entry]) => {
+      const isIntersecting = entry.isIntersecting;
+      if (isIntersecting && !isInView) {
+        ContactMeSectionRef.current.classList.add('ContactMe-scroll-effect');
+        setShowContactMe(true);
+        setIsInView(true);
+      } else if (!isIntersecting && isInView) {
+        ContactMeSectionRef.current.classList.remove('ContactMe-scroll-effect');
+        setShowContactMe(false);
+        setIsInView(false);
       }
-    );
-    const ProjectsRef = ContactMeSectionRef;
-    observer.observe(ProjectsRef.current);
+    },
+    [isInView]
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '800px 0px 150px 0px',
+    });
+    const ContactMeSection = ContactMeSectionRef.current;
+    observer.observe(ContactMeSection);
 
     return () => {
-      observer.unobserve(ProjectsRef.current);
+      observer.unobserve(ContactMeSection);
     };
-  }, [isInView]);
+  }, [observerCallback]);
 
   return (
     <div ref={ContactMePage} className="ContactMe">
@@ -47,10 +47,13 @@ function ContactMe({ContactMePage}) {
           showContactMe ? 'show-ContactMe-container' : ''
         }`}
       >
+        <div className='contact-box'>
+
+        </div>
         <Map />
       </div>
     </div>
   );
 }
 
-export default ContactMe;
+export default React.memo(ContactMe);

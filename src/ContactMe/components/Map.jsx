@@ -19,9 +19,8 @@ function Map() {
 
   return (
     <div className="Map-container">
-      <MapContainer center={position} zoom={15} style={{ height: '100%', width: '50%' }} attributionControl={false} zoomControl={false}>
+      <MapContainer center={position} zoom={15} style={{ height: '100%', width: '100%' }} attributionControl={false} zoomControl={false}>
         <TileLayer
-          attribution="&copy; Google"
           url={googleHybrid._url}
           maxZoom={googleHybrid.options.maxZoom}
           subdomains={googleHybrid.options.subdomains}

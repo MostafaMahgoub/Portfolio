@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState , useCallback } from 'react';
 import './Projects.sass';
 import ProjectsHeading from './components/ProjectsHeading';
 import BackgroundVideo from './components/BackgroundVideo';
@@ -17,30 +17,33 @@ function Projects({ProjectPageRef}) {
   const [activeNav, setActiveNav] = useState('ElectronJS');
   const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isInView) {
-          ProjectsSectionRef.current.classList.add('Projects-scroll-effect');
-          setShowProjects(true);
-          setIsInView(true);
-        } else if (!entry.isIntersecting && isInView) {
-          ProjectsSectionRef.current.classList.remove('Projects-scroll-effect');
-          setShowProjects(false);
-          setIsInView(false);
-        }
-      },
-      {
-        rootMargin: '800px 0px 150px 0px',
+  const observerCallback = useCallback(
+    ([entry]) => {
+      const isIntersecting = entry.isIntersecting;
+      if (isIntersecting && !isInView) {
+        ProjectsSectionRef.current.classList.add('Projects-scroll-effect');
+        setShowProjects(true);
+        setIsInView(true);
+      } else if (!isIntersecting && isInView) {
+        ProjectsSectionRef.current.classList.remove('Projects-scroll-effect');
+        setShowProjects(false);
+        setIsInView(false);
       }
-    );
-    const ProjectsRef = ProjectsSectionRef;
-    observer.observe(ProjectsRef.current);
+    },
+    [isInView]
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '800px 0px 150px 0px',
+    });
+    const ProjectsSection = ProjectsSectionRef.current;
+    observer.observe(ProjectsSection);
 
     return () => {
-      observer.unobserve(ProjectsRef.current);
+      observer.unobserve(ProjectsSection);
     };
-  }, [isInView]);
+  }, [observerCallback]);
 
 
   return (
@@ -92,4 +95,4 @@ function Projects({ProjectPageRef}) {
   );
 }
 
-export default Projects;
+export default React.memo(Projects);

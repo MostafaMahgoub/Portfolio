@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef , useCallback } from 'react';
 import BackgroundVideo from './components/BackgroundVideo';
 import AboutMeHeading from './components/AboutMeHeading';
 import Typewriter from './components/Typewriter';
@@ -11,34 +11,33 @@ function AboutMe({ AboutMePageRef }) {
   const [showResume, setShowResume] = useState(false);
   const [observerCalled, setObserverCalled] = useState(false);
 
+  const observerCallback = useCallback(([entry]) => {
+    if (entry.isIntersecting && !observerCalled) {
+      setTimeout(() => {
+        setShowResume(true);
+      }, 5000);
+      setStartTyping(true);
+      AboutMesectionRef.current.classList.add('AboutMe-scroll-effect');
+      setObserverCalled(true);
+    } else if (!entry.isIntersecting && observerCalled) {
+      setShowResume(false);
+      setStartTyping(false);
+      AboutMesectionRef.current.classList.remove('AboutMe-scroll-effect');
+      setObserverCalled(false);
+    }
+  }, [observerCalled]);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !observerCalled) {
-          setTimeout(() => {
-            setShowResume(true);
-          }, 5000);
-          setStartTyping(true);
-          AboutMesectionRef.current.classList.add('AboutMe-scroll-effect');
-          setObserverCalled(true);
-        } else if (!entry.isIntersecting && observerCalled) {
-          setShowResume(false);
-          setStartTyping(false);
-          AboutMesectionRef.current.classList.remove('AboutMe-scroll-effect');
-          setObserverCalled(false);
-        }
-      },
-      {
-        rootMargin: '300px 0px 50px 0px',
-      }
-    );
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '300px 0px 50px 0px',
+    });
     const aboutMeSectionRef = AboutMesectionRef;
     observer.observe(aboutMeSectionRef.current);
 
     return () => {
       observer.unobserve(aboutMeSectionRef.current);
     };
-  }, [observerCalled]);
+  }, [observerCallback]);
 
   return (
     <div ref={AboutMePageRef} className="AboutMe">
@@ -54,4 +53,4 @@ function AboutMe({ AboutMePageRef }) {
   );
 }
 
-export default AboutMe;
+export default React.memo(AboutMe);

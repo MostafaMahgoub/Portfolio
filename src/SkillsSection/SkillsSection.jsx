@@ -1,4 +1,4 @@
-import React ,{useRef , useEffect , useState} from 'react';
+import React ,{useRef , useEffect , useState , useCallback} from 'react';
 import './SkillsSection.sass';
 import Chart from './components/Chart';
 import ExpertiseHeading from './components/ExpertiseHeading';
@@ -10,34 +10,32 @@ import skills from './components/icons';
 function SkillsSection({SkillsPageRef}) {
   const ExpertiseSectionRef = useRef(null);
   const [showChart, setShowChart] = useState(false);
-  const [observerCalled, setObserverCalled] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   
+  const observerCallback = useCallback(([entry], observer) => {
+    const isIntersecting = entry.isIntersecting;
+    if (isIntersecting && !isInView) {
+      setShowChart(true);
+      ExpertiseSectionRef.current.classList.add('Expertise-scroll-effect');
+      setIsInView(true);
+    } else if (!isIntersecting && isInView) {
+      setShowChart(false);
+      ExpertiseSectionRef.current.classList.remove('Expertise-scroll-effect');
+      setIsInView(false);
+    }
+  }, [isInView]);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !observerCalled) {
-          setTimeout(() => {
-            setShowChart(true);
-          }, 500);
-          ExpertiseSectionRef.current.classList.add('Expertise-scroll-effect');
-          setObserverCalled(true);
-        } else if (!entry.isIntersecting && observerCalled){
-          setShowChart(false);
-          ExpertiseSectionRef.current.classList.remove('Expertise-scroll-effect');
-          setObserverCalled(false);
-        }
-      },
-      {
-        rootMargin: '300px 0px 150px 0px',
-      }
-    );
-    const ExpertiseRef = ExpertiseSectionRef;
-    observer.observe(ExpertiseRef.current);
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '300px 0px 150px 0px',
+    });
+    const ExpertiseRef = ExpertiseSectionRef.current;
+    observer.observe(ExpertiseRef);
 
     return () => {
-      observer.unobserve(ExpertiseRef.current);
+      observer.unobserve(ExpertiseRef);
     };
-  }, [observerCalled]);
+  }, [observerCallback]);
   return (
     <div ref={SkillsPageRef} className="SkillsSection">
       <BackgroundVideo />
@@ -52,4 +50,4 @@ function SkillsSection({SkillsPageRef}) {
   );
 }
 
-export default SkillsSection;
+export default React.memo(SkillsSection);
