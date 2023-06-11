@@ -53,9 +53,7 @@
 
 .Map-container
   flex-basis: 40%
-  // flex: 1
   height: 100%
-//   border-left: 1px solid #fbfbfb
 
 .show-ContactMe-container
   left: 10%
@@ -99,5 +97,137 @@ h2
   font-size: xxx-large
   color: #ff00009c
   font-family: emoji
+
+form 
+    padding: 10% 10% 10% 10%
+    gap: 20px
+    height: fit-content
+    align-items: flex-start
+    display: flex
+    flex-direction: column
+    input
+      background-image: radial-gradient(circle, #3c0000 0%, rgb(0, 0, 0) 100%)
+      border-radius: 10px
+      height: 35px
+      width: 100%
+      color: white
+      display: block
+
+textarea
+  background-image: radial-gradient(circle, #3c0000 0%, rgb(0, 0, 0) 100%)
+  height: 100px
+  width: 100%
+  color: white
+
+label 
+    font-family: arial
+    color: ghostwhite
+    
+
+#form-button 
+  margin-top: 50px !important
+  width: fit-content
+  position: relative
+  margin: 0 auto
+  display: inline-block
+  padding: 15px 30px
+  color: antiquewhite
+  text-transform: uppercase
+  letter-spacing: 4px
+  text-decoration: none
+  overflow: hidden
+  transition: 0.3s
+  border: none
+  background: transparent
+
+  @media screen and (min-width: 568px) 
+    font-size: 15px
+  
+
+  @media screen and (min-width: 1024px) 
+    font-size: 24px
+  
+
+#form-button:focus
+	outline: none
+
+
+
+#form-button:hover 
+    color: black
+    background: antiquewhite
+    box-shadow: 0 0 10px antiquewhite, 0 0 40px antiquewhite, 0 0 80px antiquewhite
+    transition-delay: 1s
+
+
+
+#form-button span 
+    position: absolute
+    display: block
+
+
+
+
+
+#form-button span:nth-child(1)  
+    top: 0 
+    left: -100% 
+    width: 100% 
+    height: 2px
+    background: linear-gradient(90deg, transparent, antiquewhite) 
+
+
+
+
+#form-button:hover span:nth-child(1)  
+    left: 100% 
+    transition: 1s 
+
+
+
+#form-button span:nth-child(3)  
+    bottom: 0 
+    right: -100% 
+    width: 100% 
+    height: 2px 
+    background: linear-gradient(270deg, transparent, antiquewhite) 
+
+
+#form-button:hover span:nth-child(3)  
+    right: 100% 
+    transition: 1s 
+    transition-delay: 0.5s 
+
+
+
+
+#form-button span:nth-child(2)  
+    top: -100% 
+    right: 0 
+    width: 2px 
+    height: 100% 
+    background: linear-gradient(180deg, transparent, antiquewhite) 
+
+
+#form-button:hover span:nth-child(2)  
+    top: 100% 
+    transition: 1s 
+    transition-delay: 0.25s 
+
+
+
+
+#form-button span:nth-child(4)  
+    bottom: -100% 
+    left: 0 
+    width: 2px 
+    height: 100% 
+    background: linear-gradient(360deg, transparent, antiquewhite) 
+
+
+#form-button:hover span:nth-child(4)  
+    bottom: 100% 
+    transition: 1s 
+    transition-delay: 0.75s 
 
 

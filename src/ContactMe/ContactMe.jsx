@@ -3,7 +3,7 @@ import './ContactMe.sass';
 import ContactmeHeading from './components/ContactmeHeading';
 import BackgroundVideo from './components/BackgroundVideo';
 import Map from './components/Map';
-// import ContactBox from './components/ContactBox';
+import ContactForm from './components/ContactForm';
 
 function ContactMe({ContactMePage}) {
   const ContactMeSectionRef = useRef(null);
@@ -48,8 +48,8 @@ function ContactMe({ContactMePage}) {
         }`}
       >
         <div className='contact-box'>
-
-        </div>
+           <ContactForm />
+        </div> 
         <Map />
       </div>
     </div>
