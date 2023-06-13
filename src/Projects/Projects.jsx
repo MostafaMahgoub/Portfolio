@@ -13,6 +13,7 @@ import NavProjectsMenu from './components/NavProjectsMenu';
 
 function Projects({ProjectPageRef}) {
   const ProjectsSectionRef = useRef(null);
+  const ProjectsHeadingRef = useRef(null);
   const [showProjects, setShowProjects] = useState(false);
   const [activeNav, setActiveNav] = useState('ElectronJS');
   const [isInView, setIsInView] = useState(false);
@@ -21,11 +22,11 @@ function Projects({ProjectPageRef}) {
     ([entry]) => {
       const isIntersecting = entry.isIntersecting;
       if (isIntersecting && !isInView) {
-        ProjectsSectionRef.current.classList.add('Projects-scroll-effect');
+        ProjectsHeadingRef.current.classList.add('Projects-scroll-effect');
         setShowProjects(true);
         setIsInView(true);
       } else if (!isIntersecting && isInView) {
-        ProjectsSectionRef.current.classList.remove('Projects-scroll-effect');
+        ProjectsHeadingRef.current.classList.remove('Projects-scroll-effect');
         setShowProjects(false);
         setIsInView(false);
       }
@@ -35,7 +36,7 @@ function Projects({ProjectPageRef}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '300px 0px 150px 0px',
+      rootMargin: '0px',
     });
     const ProjectsSection = ProjectsSectionRef.current;
     observer.observe(ProjectsSection);
@@ -48,8 +49,8 @@ function Projects({ProjectPageRef}) {
 
   return (
     <div ref={ProjectPageRef} className="Projects">
-      <BackgroundVideo />
-      <ProjectsHeading ProjectsSectionRef={ProjectsSectionRef} />
+      <BackgroundVideo ProjectsSectionRef={ProjectsSectionRef} />
+      <ProjectsHeading ProjectsHeadingRef={ProjectsHeadingRef}/>
       <div
         className={`projects-container ${
           showProjects ? 'show-projects-container' : ''

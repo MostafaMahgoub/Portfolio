@@ -41,7 +41,7 @@ function SkillsSection({SkillsPageRef}) {
       <BackgroundVideo />
       <ExpertiseHeading ExpertiseSectionRef={ExpertiseSectionRef} />
       <div className={`skills-container ${
-        showChart ? 'show-skils-container' : ''
+        showChart ? 'show-skills-container' : ''
       }`}>
         <Chart showChart={showChart} />
         <TextSlider skills={skills} />
