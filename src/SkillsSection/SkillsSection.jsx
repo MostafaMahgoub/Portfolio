@@ -27,7 +27,7 @@ function SkillsSection({SkillsPageRef}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '0px',
+      rootMargin: '-5px',
     });
     const ExpertiseRef = SkillsPageRef.current;
     observer.observe(ExpertiseRef);

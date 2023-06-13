@@ -36,7 +36,7 @@ function Projects({ProjectPageRef}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '0px',
+      rootMargin: '-5px',
     });
     const ProjectsSection = ProjectsSectionRef.current;
     observer.observe(ProjectsSection);

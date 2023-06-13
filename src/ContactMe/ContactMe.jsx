@@ -28,7 +28,7 @@ function ContactMe({ContactMePage}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '0px',
+      rootMargin: '-5px',
     });
     const ContactMeSection = ContactMePage.current;
     observer.observe(ContactMeSection);
