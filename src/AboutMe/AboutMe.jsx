@@ -29,15 +29,15 @@ function AboutMe({ AboutMePageRef }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '300px 0px 50px 0px',
+      rootMargin: '-5px',
     });
-    const aboutMeSectionRef = AboutMesectionRef;
+    const aboutMeSectionRef = AboutMePageRef;
     observer.observe(aboutMeSectionRef.current);
 
     return () => {
       observer.unobserve(aboutMeSectionRef.current);
     };
-  }, [observerCallback]);
+  }, [observerCallback,AboutMePageRef]);
 
   return (
     <div ref={AboutMePageRef} className="AboutMe">

@@ -27,15 +27,15 @@ function SkillsSection({SkillsPageRef}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '300px 0px 150px 0px',
+      rootMargin: '0px',
     });
-    const ExpertiseRef = ExpertiseSectionRef.current;
+    const ExpertiseRef = SkillsPageRef.current;
     observer.observe(ExpertiseRef);
 
     return () => {
       observer.unobserve(ExpertiseRef);
     };
-  }, [observerCallback]);
+  }, [observerCallback,SkillsPageRef]);
   return (
     <div ref={SkillsPageRef} className="SkillsSection">
       <BackgroundVideo />

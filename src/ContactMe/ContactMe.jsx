@@ -28,15 +28,15 @@ function ContactMe({ContactMePage}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '800px 0px 150px 0px',
+      rootMargin: '0px',
     });
-    const ContactMeSection = ContactMeSectionRef.current;
+    const ContactMeSection = ContactMePage.current;
     observer.observe(ContactMeSection);
 
     return () => {
       observer.unobserve(ContactMeSection);
     };
-  }, [observerCallback]);
+  }, [observerCallback,ContactMePage]);
 
   return (
     <div ref={ContactMePage} className="ContactMe">
