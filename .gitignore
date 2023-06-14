@@ -9,11 +9,11 @@
 /build
 
 # assets
-src/AboutMe/assets
-src/ContactMe/assets
-src/HomePage/assets
-src/Projects/assets
-src/SkillsSection/assets
+# src/AboutMe/assets
+# src/ContactMe/assets
+# src/HomePage/assets
+# src/Projects/assets
+# src/SkillsSection/assets
 
 # packages for personal purposes
 package.json
