@@ -15,7 +15,7 @@ function Chart({showChart}) {
       
       chart
         .setTitle('Learning curve')
-        .setPadding({ top: 50, right: 40, bottom: 40, left: 60 });
+        .setPadding({ top: 20, right: 30, bottom: 20, left: 20 });
 
      
       chart.getDefaultAxisX().setInterval({ start: 2018, end: 2023 }).setTitle('Year');
@@ -95,7 +95,18 @@ function Chart({showChart}) {
       
       const legendSkills = chart.addLegendBox().add(chart);
       legendSkills.setTitle('Skills');
-
+      const handleLegendMouseEnter = () => {
+        const currentMargin = legendSkills.getMargin();
+        legendSkills.setMargin({ top: currentMargin.top, right: 0, bottom: currentMargin.bottom, left: currentMargin.left });
+      };
+      const handleLegendMouseLeave = () => {
+       const currentMargin = legendSkills.getMargin();
+        legendSkills.setMargin({ top: currentMargin.top, right: -240, bottom: currentMargin.bottom, left: currentMargin.left });
+      };
+      legendSkills.onMouseEnter(handleLegendMouseEnter);
+      legendSkills.onMouseLeave(handleLegendMouseLeave);
+      legendSkills.onTouchStart(handleLegendMouseEnter);
+      legendSkills.onTouchMove(handleLegendMouseLeave);
       
       return () => {
         chart.dispose();
