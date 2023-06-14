@@ -32,10 +32,12 @@
         left: 25% 
         font-size: 32px 
     @media screen and (min-width: 1024px)
-        left: 13%
+        left: 16%
         font-size: 52px 
 
 .ContactMe-container
+  @media screen and (min-width: 0px) and (max-width: 568px) 
+    flex-direction: column-reverse
   display: flex
   width: 80%
   height: 80%

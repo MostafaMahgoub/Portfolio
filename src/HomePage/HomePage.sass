@@ -258,11 +258,19 @@ img.icon:hover
 	transition: opacity 1s ease-out
 
 .switch-button-animation
-	top: 50%
+	@media screen and (min-width: 0px) and (max-width: 568px)
+		left: 16%
+		top: 40%
+	@media screen and (min-width: 568px)
+		top: 50%
 	transition: 1s
 
 .fade-switch-button-animation
-	top: 30%
+	@media screen and (min-width: 0px) and (max-width: 568px) 
+		left: 16%
+		top: 30%
+	@media screen and (min-width: 568px)
+		top: 30%
 	transition: 1s
 
 .txt
@@ -273,6 +281,8 @@ img.icon:hover
 	letter-spacing: .15em 
 	animation: typing 3.5s steps(30, end),blink-caret .5s step-end infinite
 	color: #ff9602
+	@media screen and (min-width: 0px)
+		font-size: 20px
 	@media screen and (min-width: 568px)
 		font-size: 50px
 	@media screen and (min-width: 1024px)
@@ -315,7 +325,10 @@ img.icon:hover
 	overflow: hidden
 	height: auto
 	position: absolute
-	@media screen and (min-width: 568px)
+	@media screen and  (min-width:0px)
+		top: 37%
+		left: 27%
+	@media screen and (min-width: 500px)
 		top: 37%
 		left: 20%
 	@media screen and (min-width: 1624px)
