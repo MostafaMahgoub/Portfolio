@@ -97,7 +97,7 @@ function Chart({showChart}) {
       legendSkills.setTitle('Skills');
       const handleLegendMouseEnter = () => {
         const currentMargin = legendSkills.getMargin();
-        legendSkills.setMargin({ top: currentMargin.top, right: 0, bottom: currentMargin.bottom, left: currentMargin.left });
+        legendSkills.setMargin({ top: currentMargin.top, right: -30, bottom: currentMargin.bottom, left: currentMargin.left });
       };
       const handleLegendMouseLeave = () => {
        const currentMargin = legendSkills.getMargin();
