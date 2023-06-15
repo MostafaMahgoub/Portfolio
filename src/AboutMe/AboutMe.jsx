@@ -19,11 +19,6 @@ function AboutMe({ AboutMePageRef }) {
       setStartTyping(true);
       AboutMesectionRef.current.classList.add('AboutMe-scroll-effect');
       setObserverCalled(true);
-    } else if (!entry.isIntersecting && observerCalled) {
-      setShowResume(false);
-      setStartTyping(false);
-      AboutMesectionRef.current.classList.remove('AboutMe-scroll-effect');
-      setObserverCalled(false);
     }
   }, [observerCalled]);
 
